@@ -7,7 +7,7 @@
       <div>
         <div class="navbar__nav-items-container">
           <div v-for="(item, key) in getNavItems" :key="key">
-            <router-link class="navbar__nav-items" :to="item.path">{{ item.name }}</router-link>
+            <router-link class="navbar__nav-items" exact-active-class="active" :to="item.path">{{ item.name }}</router-link>
           </div>
         </div>
         <burger-menu :items="getNavItems" class="navbar__burger-menu"></burger-menu>
@@ -84,5 +84,9 @@ export default {
     height: 100%;
     padding: 0 20px;
   }
+}
+.active {
+  color: #367d91;
+  border-bottom: 3px solid #367d91;
 }
 </style>
