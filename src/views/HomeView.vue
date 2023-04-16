@@ -40,10 +40,22 @@
     <section class="home-view__help-you">
       <div class="home-view__help-you-content">
         <div class="home-view__help-you-title">
-          <div>Title</div>
-          <div>Sub text</div>
+          <h1>How can we help you?</h1>
         </div>
-        <div class="home-view__help-you-selections">Selections</div>
+        <div class="home-view__help-you-sub-text">
+          <h4>Let us know who you are and what you're looking for, and we'll help you get to the right place.</h4>
+        </div>
+        <div class="home-view__help-you-selections">
+          <div class="home-view__help-you-options">
+            <span style="margin-right: 8px">I am</span>
+            <drop-down :items="personTypeOptions" :selected="'please select'" :show="showPersonType" v-bind="$listeners" @click="showPersonType = !showPersonType" @itemSelected="updatePersonType" />
+            <span style="margin: 0px 8px">I want to</span>
+            <drop-down :items="actionTypeOptions" :selected="actionType" :show="showActionType" v-bind="$listeners" @click="showActionType = !showActionType" @itemSelected="updateActionType" />
+          </div>
+          <div>
+            <button class="home-view__help-you-button">Start now</button>
+          </div>
+        </div>
       </div>
     </section>
     <section class="home-view__about-us">About us</section>
@@ -51,7 +63,31 @@
 </template>
 
 <script>
-export default {}
+import DropDown from '@/components/DropDown.vue'
+export default {
+  name: 'home-view',
+  components: {
+    DropDown,
+  },
+  data() {
+    return {
+      personType: 'a person',
+      personTypeOptions: ['a person', 'a researcher', 'an individual'],
+      showPersonType: false,
+      actionType: 'want to help',
+      actionTypeOptions: ['want to help', 'work for you', 'improve my online skills'],
+      showActionType: false,
+    }
+  },
+  methods: {
+    updatePersonType(item) {
+      this.personType = item
+    },
+    updateActionType(item) {
+      this.actionType = item
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped>
@@ -169,22 +205,66 @@ export default {}
     }
   }
   &__help-you {
-    height: 300px;
+    height: 350px;
     background: rgb(235, 235, 235);
     &-content {
+      height: 100%;
       display: flex;
       flex-direction: column;
-      height: 100%;
+      justify-content: center;
+      margin-left: 40px;
+      margin-right: 40px;
       gap: 10px;
-      padding: 20px;
     }
     &-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    &-selections {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      padding: 30px 0;
+      text-align: center;
+    }
+    &-options {
+      display: flex;
+      font-size: 2rem;
+      margin-right: 10px;
+    }
+    &-button {
+      background: #b40000;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+      outline: none;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      color: white;
+      &:hover {
+        background: #760000;
+      }
     }
   }
   &__about-us {
     height: 500px;
     background: rgb(112, 108, 108);
   }
+}
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 4px;
+  transition: all 0.4s;
+  transform: rotate(45deg);
+}
+.active {
+  transform: rotate(225deg);
+  -webkit-transform: rotate(225deg);
+  margin-top: 10px;
 }
 @media screen and (min-width: 1200px) {
   .home-view {
@@ -200,6 +280,7 @@ export default {}
     }
   }
 }
+
 @media screen and (max-width: 992px) {
   .home-view {
     &__main-card {
