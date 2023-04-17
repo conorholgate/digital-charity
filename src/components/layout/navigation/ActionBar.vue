@@ -2,15 +2,15 @@
   <div class="action-bar">
     <div class="action-bar__container">
       <div class="action-bar__search">
-        <img style="width: 24px; height: 24px" src="../../../assets/search-icon.png" alt="search-icon" />
-        <button class="action-bar__search-button">Search</button>
+        <img style="width: 24px; height: 24px" :src="getIcon.url" :alt="getIcon.fileName" />
+        <button class="action-bar__search-button">{{ getActionBarContent.searchButtonText }}</button>
       </div>
       <div class="action-bar__action-buttons">
         <div class="action-bar__action-buttons-learn-container">
-          <button class="action-bar__action-buttons-learn">Learn</button>
+          <button class="action-bar__action-buttons-learn">{{ getActionBarContent.buttonOneText }}</button>
         </div>
         <div class="action-bar__action-buttons-donate-container">
-          <button class="action-bar__action-buttons-donate">Donate</button>
+          <button class="action-bar__action-buttons-donate">{{ getActionBarContent.buttonTwoText }}</button>
         </div>
       </div>
     </div>
@@ -18,8 +18,15 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   name: 'action-bar',
+  computed: {
+    ...mapGetters('contentful', ['getActionBarContent']),
+    getIcon() {
+      return this.getActionBarContent?.searchIcon?.fields?.file
+    },
+  },
 }
 </script>
 

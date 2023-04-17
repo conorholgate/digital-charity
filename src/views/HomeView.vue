@@ -3,19 +3,18 @@
     <!-- Main card -->
     <section>
       <div class="home-view__main-card">
-        <div class="home-view__main-card-content">
+        <div class="home-view__main-card-content" :style="`background-image: url(${getMainCardBackgroundImage});`">
           <div class="home-view__main-card-container section-container">
             <div class="home-view__main-card-title">
-              <h1>Get online week 2023</h1>
+              <h1>{{ getMainCardContent.title }}</h1>
             </div>
             <div class="home-view__main-card-excerpt">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima in quis, fuga eos hic cum nemo quas minus cumque pariatur totam quo,
-                quaerat facilis. Commodi quidem nam dignissimos vel minima.
+                {{ getMainCardContent.information }}
               </p>
             </div>
             <div>
-              <button class="home-view__main-card-button custom-button">Get involved now!</button>
+              <button class="home-view__main-card-button custom-button">{{ getMainCardContent.buttonText }}</button>
             </div>
           </div>
         </div>
@@ -24,21 +23,21 @@
 
     <!-- Secondary cards -->
     <section class="home-view__secondary-cards">
-      <div class="home-view__secondary-cards-image-only-card"></div>
+      <div class="home-view__secondary-cards-image-only-card" :style="`background-image: url(${getSecondCardBackgroundImage});`"></div>
       <div class="home-view__secondary-cards-information-card">
         <div class="home-view__secondary-cards-information-card-container">
           <div class="home-view__secondary-cards-text">
             <div class="home-view__secondary-cards-text-title title">
-              <h1>We are a social change charity, helping people to improve their lives through digital.</h1>
+              <h1>{{ getSecondCardContent.title }}</h1>
             </div>
             <div class="home-view__secondary-cards-text-sub-text sub-text">
               <p>
-                We tackle the most pressing issues of our time, working with partners in thousands of communitites across the uk and further afield.
+                {{ getSecondCardContent.information }}
               </p>
             </div>
           </div>
           <div>
-            <button class="home-view__secondary-cards-information-card-button custom-button">Learn more about us</button>
+            <button class="home-view__secondary-cards-information-card-button custom-button">{{ getSecondCardContent.buttonText }}</button>
           </div>
         </div>
       </div>
@@ -48,17 +47,17 @@
     <section class="home-view__help-you section-container">
       <div class="home-view__help-you-content">
         <div class="home-view__help-you-title title">
-          <h1>How can we help you?</h1>
+          <h1>{{ getHelpSectionContent.title }}</h1>
         </div>
         <div class="home-view__help-you-sub-text sub-text">
-          <p>Let us know who you are and what you're looking for, and we'll help you get to the right place.</p>
+          <p>{{ getHelpSectionContent.information }}</p>
         </div>
         <div class="home-view__help-you-selections">
           <div class="home-view__help-you-options">
             <span style="margin-right: 8px">I am a</span>
             <drop-down
               :items="personTypeOptions"
-              :selected="'please select'"
+              :selected="personType"
               :show="showPersonType"
               v-bind="$listeners"
               @click="showPersonType = !showPersonType"
@@ -75,7 +74,7 @@
             />
           </div>
           <div>
-            <button class="home-view__help-you-button custom-button">Start now</button>
+            <button class="home-view__help-you-button custom-button">{{ getHelpSectionContent.buttonText }}</button>
           </div>
         </div>
       </div>
@@ -85,13 +84,18 @@
     <footer class="home-view__about-us section-container">
       <div class="home-view__about-us-content">
         <div class="home-view__about-us-title title">
-          <h1>What do we do?</h1>
+          <h1>{{ getAboutUsContent.title }}</h1>
         </div>
         <div class="home-view__about-us-sub-text sub-text">
-          <p>You might not have heard of us, but we're the people behind the following impactful programmes</p>
+          <p>{{ getAboutUsContent.information }}</p>
         </div>
         <div class="home-view__about-us-cards">
-          <div class="home-view__about-us-card">
+          <div class="home-view__about-us-card" v-for="(card, index) in getAboutUsContent.cardTitles" :key="index">
+            <div class="home-view__about-us-card-title card-title">{{ card }}</div>
+            <div class="home-view__about-us-card-sub-title card-sub-title">{{ getAboutUsContent.cardInfo[index] }}</div>
+            <button class="home-view__about-us-card-button card-button custom-button">{{ getAboutUsContent.cardButtonText }}</button>
+          </div>
+          <!-- <div class="home-view__about-us-card">
             <div class="home-view__about-us-card-title card-title">Get online week</div>
             <div class="home-view__about-us-card-sub-title card-sub-title">Lorem ipsum solor sit</div>
             <button class="home-view__about-us-card-button card-button custom-button">Click me</button>
@@ -105,15 +109,10 @@
             <div class="home-view__about-us-card-title card-title">Get online week</div>
             <div class="home-view__about-us-card-sub-title card-sub-title">Lorem ipsum solor sit</div>
             <button class="home-view__about-us-card-button card-button custom-button">Click me</button>
-          </div>
-          <div class="home-view__about-us-card">
-            <div class="home-view__about-us-card-title card-title">Get online week</div>
-            <div class="home-view__about-us-card-sub-title card-sub-title">Lorem ipsum solor sit</div>
-            <button class="home-view__about-us-card-button card-button custom-button">Click me</button>
-          </div>
+          </div> -->
         </div>
         <div class="home-view__about-us-button-container">
-          <button class="home-view__about-us-button custom-button">Learn more about us</button>
+          <button class="home-view__about-us-button custom-button">{{ getAboutUsContent.sectionButtonText }}</button>
         </div>
       </div>
     </footer>
@@ -122,6 +121,8 @@
 
 <script>
 import DropDown from '@/components/utilities/DropDown.vue'
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'home-view',
   components: {
@@ -137,12 +138,39 @@ export default {
       showActionType: false,
     }
   },
+  computed: {
+    ...mapGetters('contentful', [
+      'getMainCardContent',
+      'getSecondCardContent',
+      'getSecondCardContentImage',
+      'getHelpSectionContent',
+      'getAboutUsContent',
+    ]),
+    getMainCardBackgroundImage() {
+      return this.getMainCardContent?.backgroundImage?.fields?.file?.url
+    },
+    getSecondCardBackgroundImage() {
+      return this.getSecondCardContentImage?.backgroundImage?.fields?.file?.url
+    },
+  },
   methods: {
     updatePersonType(item) {
       this.personType = item
     },
     updateActionType(item) {
       this.actionType = item
+    },
+    setPersonType() {
+      return (this.personType = this.getHelpSectionContent.whoOptions[0])
+    },
+    setActionType() {
+      return (this.actionType = this.getHelpSectionContent.actionOptions[0])
+    },
+    setPersonTypeOptions() {
+      return (this.personTypeOptions = this.getHelpSectionContent.whoOptions)
+    },
+    setActionTypeOptions() {
+      return (this.actionTypeOptions = this.getHelpSectionContent.actionOptions)
     },
   },
 }
@@ -155,7 +183,7 @@ export default {
     height: 500px;
     &-content {
       height: 100%;
-      background-image: url('../assets/people.jpg');
+      //   background-image: url('../assets/people.jpg');
       background-position: 50%;
       background-size: cover;
       position: relative;
@@ -203,10 +231,10 @@ export default {
   // seconadry card section
   &__secondary-cards {
     display: flex;
-    height: 400px;
+    height: 500px;
     &-image-only-card {
       height: 100%;
-      background-image: url('../assets/person-smiling.jpg');
+      //   background-image: url('../assets/person-smiling.jpg');
       background-position: 50%;
       background-size: cover;
       position: relative;
@@ -347,6 +375,7 @@ export default {
       height: 100%;
       background-color: white;
       margin-bottom: 20px;
+      padding: 0 20px;
       &-title {
         font-weight: bold;
       }
@@ -509,7 +538,7 @@ export default {
       }
       &-information-card {
         width: 100%;
-        height: 50%;
+        height: auto;
       }
     }
     &__about-us {

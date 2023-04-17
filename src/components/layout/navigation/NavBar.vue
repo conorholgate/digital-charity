@@ -2,15 +2,15 @@
   <nav class="navbar">
     <div class="navbar__container">
       <div class="navbar__logo-container">
-        <img class="navbar__logo" src="../../../assets/good-things-foundation-logo.png" alt="" />
+        <img class="navbar__logo" :src="getIcon.url" :alt="getIcon.fileName" />
       </div>
       <div>
         <div class="navbar__nav-items-container">
-          <div v-for="(item, key) in getNavItems" :key="key">
+          <div v-for="(item, key) in navItems" :key="key">
             <router-link class="navbar__nav-items" exact-active-class="active" :to="item.path">{{ item.name }}</router-link>
           </div>
         </div>
-        <burger-menu :items="getNavItems" class="navbar__burger-menu"></burger-menu>
+        <burger-menu :items="navItems" class="navbar__burger-menu"></burger-menu>
       </div>
     </div>
   </nav>
@@ -27,7 +27,13 @@ export default {
     return {}
   },
   computed: {
-    ...mapGetters(['getNavItems']),
+    ...mapGetters('contentful', ['getNavbarContent']),
+    getIcon() {
+      return this.getNavbarContent?.logo?.fields?.file
+    },
+    navItems() {
+      return this.getNavbarContent?.navigationItems
+    },
   },
 }
 </script>
