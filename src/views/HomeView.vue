@@ -1,5 +1,6 @@
 <template>
   <div class="home-view">
+    <!-- Main card -->
     <section>
       <div class="home-view__main-card">
         <div class="home-view__main-card-content">
@@ -14,13 +15,14 @@
               </p>
             </div>
             <div>
-              <button class="home-view__main-card-button">Get involved now!</button>
+              <button class="home-view__main-card-button custom-button">Get involved now!</button>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Secondary cards -->
     <section class="home-view__secondary-cards">
       <div class="home-view__secondary-cards-image-only-card"></div>
       <div class="home-view__secondary-cards-information-card">
@@ -36,12 +38,13 @@
             </div>
           </div>
           <div>
-            <button class="home-view__secondary-cards-information-card-button">Learn more about us</button>
+            <button class="home-view__secondary-cards-information-card-button custom-button">Learn more about us</button>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- How can we help -->
     <section class="home-view__help-you section-container">
       <div class="home-view__help-you-content">
         <div class="home-view__help-you-title title">
@@ -72,12 +75,13 @@
             />
           </div>
           <div>
-            <button class="home-view__help-you-button">Start now</button>
+            <button class="home-view__help-you-button custom-button">Start now</button>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- About us footer -->
     <footer class="home-view__about-us section-container">
       <div class="home-view__about-us-content">
         <div class="home-view__about-us-title title">
@@ -88,28 +92,28 @@
         </div>
         <div class="home-view__about-us-cards">
           <div class="home-view__about-us-card">
-            <div class="card-title">Get online week</div>
-            <div class="card-sub-title">Lorem ipsum solor sit</div>
-            <button class="card-button">Click me</button>
+            <div class="home-view__about-us-card-title card-title">Get online week</div>
+            <div class="home-view__about-us-card-sub-title card-sub-title">Lorem ipsum solor sit</div>
+            <button class="home-view__about-us-card-button card-button custom-button">Click me</button>
           </div>
           <div class="home-view__about-us-card">
-            <div class="card-title">Get online week</div>
-            <div class="card-sub-title">Lorem ipsum solor sit</div>
-            <button class="card-button">Click me</button>
+            <div class="home-view__about-us-card-title card-title">Get online week</div>
+            <div class="home-view__about-us-card-sub-title card-sub-title">Lorem ipsum solor sit</div>
+            <button class="home-view__about-us-card-button card-button custom-button">Click me</button>
           </div>
           <div class="home-view__about-us-card">
-            <div class="card-title">Get online week</div>
-            <div class="card-sub-title">Lorem ipsum solor sit</div>
-            <button class="card-button">Click me</button>
+            <div class="home-view__about-us-card-title card-title">Get online week</div>
+            <div class="home-view__about-us-card-sub-title card-sub-title">Lorem ipsum solor sit</div>
+            <button class="home-view__about-us-card-button card-button custom-button">Click me</button>
           </div>
           <div class="home-view__about-us-card">
-            <div class="card-title">Get online week</div>
-            <div class="card-sub-title">Lorem ipsum solor sit</div>
-            <button class="card-button">Click me</button>
+            <div class="home-view__about-us-card-title card-title">Get online week</div>
+            <div class="home-view__about-us-card-sub-title card-sub-title">Lorem ipsum solor sit</div>
+            <button class="home-view__about-us-card-button card-button custom-button">Click me</button>
           </div>
         </div>
-        <div class="home-view__about-us-button">
-          <button class="footer-button">Learn more about us</button>
+        <div class="home-view__about-us-button-container">
+          <button class="home-view__about-us-button custom-button">Learn more about us</button>
         </div>
       </div>
     </footer>
@@ -117,7 +121,7 @@
 </template>
 
 <script>
-import DropDown from '@/components/DropDown.vue'
+import DropDown from '@/components/utilities/DropDown.vue'
 export default {
   name: 'home-view',
   components: {
@@ -145,23 +149,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.section-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 20px;
-  padding: 40px;
-}
-.title h1 {
-  font-size: 2.5rem;
-}
-.sub-text p {
-  font-size: 1.5rem;
-  margin: 0 !important;
-  padding: 0;
-}
 .home-view {
-  font-size: 1.5rem;
+  // main card section
   &__main-card {
     height: 500px;
     &-content {
@@ -187,27 +176,19 @@ export default {
       font-weight: bold;
     }
     &-title {
-      height: fit-content;
       font-size: 2rem;
       color: white;
       padding: 20px;
       background: #367d91;
     }
     &-excerpt {
-      max-width: 35%;
+      max-width: 75%;
       color: #278d82;
       background: white;
-      font-size: 1rem;
     }
     &-button {
       background: white;
       border: none;
-      border-radius: 20px;
-      padding: 10px 20px;
-      outline: none;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: bold;
       color: #b40000;
       &:hover {
         background: #760000;
@@ -215,6 +196,8 @@ export default {
       }
     }
   }
+
+  // seconadry card section
   &__secondary-cards {
     display: flex;
     height: 400px;
@@ -245,11 +228,6 @@ export default {
       }
       &-button {
         border: solid 2px white;
-        border-radius: 20px;
-        padding: 10px 20px;
-        outline: none;
-        cursor: pointer;
-        font-weight: bold;
         color: white;
         background: none;
         &:hover {
@@ -266,12 +244,17 @@ export default {
       color: white;
 
       &-title h1 {
-        font-size: 2rem;
+        font-size: 1.75rem;
         line-height: 36px;
-        font-weight: 900;
+        font-weight: bold;
+      }
+      &-sub-text p {
+        font-size: 1.25rem;
       }
     }
   }
+
+  // help you section
   &__help-you {
     height: auto;
     background: rgb(235, 235, 235);
@@ -316,6 +299,8 @@ export default {
       }
     }
   }
+
+  //about us section
   &__about-us {
     height: auto;
     background: #367d91;
@@ -353,47 +338,37 @@ export default {
       height: 100%;
       background-color: white;
       margin-bottom: 20px;
+      &-title {
+        font-weight: bold;
+      }
+      &-button {
+        border: solid 2px black;
+        color: #b40000;
+        background: none;
+        &:hover {
+          background: #760000;
+          color: white;
+        }
+      }
     }
-    &-button {
+    &-button-container {
       display: flex;
       justify-content: center;
       margin-bottom: 10px;
     }
+    &-button {
+      border: none;
+      color: #b40000;
+      background: white;
+      &:hover {
+        background: #760000;
+        color: white;
+      }
+    }
   }
 }
-.card-title {
-  font-weight: bold;
-}
-.card-button {
-  border: solid 2px black;
-  border-radius: 20px;
-  padding: 10px 20px;
-  outline: none;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #b40000;
-  background: none;
-  &:hover {
-    background: #760000;
-    color: white;
-  }
-}
-.footer-button {
-  border: none;
-  border-radius: 20px;
-  padding: 10px 20px;
-  outline: none;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #b40000;
-  background: white;
-  &:hover {
-    background: #760000;
-    color: white;
-  }
-}
+
+// media queries
 @media screen and (min-width: 1200px) {
   .home-view {
     &__main-card {
@@ -401,8 +376,7 @@ export default {
       &-title {
         font-size: 3rem;
       }
-      &-excerpt,
-      &-button {
+      &-excerpt {
         font-size: 1.5rem;
       }
     }
@@ -414,15 +388,6 @@ export default {
   }
 }
 @media screen and (max-width: 992px) {
-  .section-container {
-    padding: 20px;
-  }
-  .title h1 {
-    font-size: 2rem;
-  }
-  .sub-text p {
-    font-size: 1rem;
-  }
   .home-view {
     &__main-card {
       &-container {
@@ -465,12 +430,6 @@ export default {
   }
 }
 @media screen and (max-width: 768px) {
-  .section-container {
-    gap: 10px;
-  }
-  .title h1 {
-    font-size: 1.25rem;
-  }
   .home-view {
     &__main-card {
       max-height: 600px;
@@ -486,7 +445,11 @@ export default {
       &-text {
         max-width: 100%;
         &-title h1 {
+          font-size: 1.25rem;
           line-height: 24px;
+        }
+        &-sub-text p {
+          font-size: 1rem;
         }
       }
     }
@@ -520,9 +483,6 @@ export default {
   .home-view {
     &__main-card {
       max-height: 800px;
-      &-button {
-        font-size: 1rem;
-      }
     }
     &__secondary-cards {
       display: flex;
