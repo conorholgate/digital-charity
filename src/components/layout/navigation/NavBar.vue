@@ -77,6 +77,11 @@ export default {
   }
 }
 @media screen and (max-width: 768px) {
+  .navbar {
+    &__logo {
+      max-width: 150px;
+    }
+  }
   .navbar__container {
     display: flex;
     align-items: center;

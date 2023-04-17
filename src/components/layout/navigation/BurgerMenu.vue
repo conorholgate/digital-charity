@@ -61,6 +61,16 @@ export default {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .burger-menu {
+    margin-top: 5px;
+    &__icon {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
 // ANIMATIONS
 .slide-down-enter-active,
 .slide-down-leave-active {
