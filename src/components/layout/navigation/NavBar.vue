@@ -54,9 +54,12 @@ export default {
   }
   &__nav-items {
     text-decoration: none;
-    color: black;
+    color: $black;
     &:hover {
-      color: gray;
+      color: $blue-hover;
+    }
+    &:active {
+      color: $blue-active;
     }
   }
   &__burger-menu {
@@ -91,7 +94,7 @@ export default {
   }
 }
 .active {
-  color: #367d91;
-  border-bottom: 3px solid #367d91;
+  color: $blue;
+  border-bottom: 3px solid $blue;
 }
 </style>

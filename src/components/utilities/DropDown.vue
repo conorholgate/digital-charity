@@ -47,7 +47,7 @@ export default {
 .drop-down {
   position: relative;
   cursor: pointer;
-  border-bottom: 3px solid #278d82;
+  border-bottom: 3px solid $green;
   &__selected {
     display: flex;
     align-items: center;
@@ -58,7 +58,7 @@ export default {
   &__items {
     position: absolute;
     width: 100%;
-    background: #278d82;
+    background: $green;
     right: 0;
     font-size: 1.5rem;
     min-width: max-content;
@@ -66,13 +66,13 @@ export default {
     &-item {
       padding: 4px 8px !important;
       &:hover {
-        background-color: #164c47;
+        background-color: $green-hover;
       }
     }
   }
 }
 .arrow {
-  border: solid black;
+  border: solid $black;
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 4px;

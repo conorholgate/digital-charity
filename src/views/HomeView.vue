@@ -177,25 +177,25 @@ export default {
     }
     &-title {
       font-size: 2rem;
-      color: white;
+      color: $white;
       padding: 20px;
-      background: #367d91;
+      background: $blue;
     }
     &-excerpt {
       max-width: 75%;
-      color: #278d82;
-      background: white;
+      color: $green;
+      background: $white;
     }
     &-button {
-      background: white;
+      background: $white;
       border: none;
-      color: #b40000;
+      color: $red;
       &:hover {
-        background: #760000;
-        color: white;
+        background: $red-hover;
+        color: $white;
       }
       &:active {
-        background: #4a0000;
+        background: $red-active;
       }
     }
   }
@@ -218,7 +218,7 @@ export default {
       justify-content: center;
       gap: 10px;
       width: 50%;
-      background: #278d82;
+      background: $green;
       p {
         margin: 0;
       }
@@ -230,15 +230,15 @@ export default {
         padding: 0 40px;
       }
       &-button {
-        border: solid 2px white;
-        color: white;
+        border: solid 2px $white;
+        color: $white;
         background: none;
         &:hover {
-          background: white;
-          color: #278d82;
+          background: $white;
+          color: $green;
         }
         &:active {
-          background: #dddddd;
+          background: $gray;
         }
       }
     }
@@ -247,7 +247,7 @@ export default {
       flex-direction: column;
       gap: 20px;
       max-width: 85%;
-      color: white;
+      color: $white;
 
       &-title h1 {
         font-size: 1.75rem;
@@ -263,7 +263,7 @@ export default {
   // help you section
   &__help-you {
     height: auto;
-    background: rgb(235, 235, 235);
+    background: $gray;
     &-content {
       height: 100%;
       display: flex;
@@ -279,7 +279,7 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
-      background: white;
+      background: $white;
       padding: 30px 10px;
       text-align: center;
     }
@@ -291,7 +291,7 @@ export default {
       margin-right: 20px;
     }
     &-button {
-      background: #b40000;
+      background: $red;
       border: none;
       border-radius: 20px;
       padding: 10px 20px;
@@ -299,12 +299,12 @@ export default {
       cursor: pointer;
       font-size: 1rem;
       font-weight: bold;
-      color: white;
+      color: $white;
       &:hover {
-        background: #760000;
+        background: $red-hover;
       }
       &:active {
-        background: #4a0000;
+        background: $red-active;
       }
     }
   }
@@ -312,7 +312,7 @@ export default {
   //about us section
   &__about-us {
     height: auto;
-    background: #367d91;
+    background: $green;
     &-content {
       height: 100%;
       display: flex;
@@ -323,10 +323,10 @@ export default {
     }
     &-title {
       font-weight: bold;
-      color: white;
+      color: $white;
     }
     &-sub-text p {
-      color: white;
+      color: $white;
     }
     &-cards {
       display: flex;
@@ -351,15 +351,15 @@ export default {
         font-weight: bold;
       }
       &-button {
-        border: solid 2px black;
-        color: #b40000;
+        border: solid 2px $black;
+        color: $red;
         background: none;
         &:hover {
-          background: #760000;
-          color: white;
+          background: $red-hover;
+          color: $white;
         }
         &:active {
-          background: #4a0000;
+          background: $red-active;
         }
       }
     }
@@ -370,14 +370,14 @@ export default {
     }
     &-button {
       border: none;
-      color: #b40000;
-      background: white;
+      color: $red;
+      background: $white;
       &:hover {
-        background: #760000;
-        color: white;
+        background: $red-hover;
+        color: $white;
       }
       &:active {
-        background: #4a0000;
+        background: $red-active;
       }
     }
   }

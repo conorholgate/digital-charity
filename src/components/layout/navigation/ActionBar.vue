@@ -30,16 +30,12 @@ button {
   background: none;
   cursor: inherit;
   font-weight: inherit;
-
-  &:hover {
-    color: gray;
-  }
 }
 .action-bar {
   height: 40px;
   display: flex;
   margin-top: 5px;
-  border-bottom: solid 1px #d5d5d5;
+  border-bottom: solid 1px $gray;
 
   &__container {
     display: flex;
@@ -53,8 +49,8 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-left: 1px solid #d5d5d5;
-    border-right: 1px solid #d5d5d5;
+    border-left: 1px solid $gray;
+    border-right: 1px solid $gray;
     cursor: pointer;
     font-weight: bold;
   }
@@ -71,24 +67,32 @@ button {
   }
 
   &__action-buttons-learn-container {
-    border-bottom: 5px solid #008000;
+    border-bottom: 5px solid $green;
     &:hover {
-      background: #008000;
+      background: $green;
       .action-bar__action-buttons-learn {
-        color: white;
+        color: $white;
       }
+    }
+    &:active {
+      background: $green-active;
+      border-bottom: 5px solid $green-active;
     }
   }
   &__action-buttons-donate-container {
-    background: #b40000;
-    border-bottom: 5px solid #b40000;
+    background: $red;
+    border-bottom: 5px solid $red;
     &:hover {
-      background: #760000;
-      border-bottom-color: #760000;
+      background: $red-hover;
+      border-bottom-color: $red-hover;
+    }
+    &:active {
+      background: $red-active;
+      border-bottom-color: $red-active;
     }
   }
   &__action-buttons-donate {
-    color: white;
+    color: $white;
   }
 }
 @media screen and (max-width: 768px) {

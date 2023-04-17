@@ -53,10 +53,10 @@ export default {
   }
   &__item {
     text-decoration: none;
-    color: white;
+    color: $white;
     font-size: 2rem;
     &:hover {
-      color: gray;
+      color: $gray;
     }
   }
 }
