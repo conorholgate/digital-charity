@@ -3,12 +3,15 @@
     <section>
       <div class="home-view__main-card">
         <div class="home-view__main-card-content">
-          <div class="home-view__main-card-container">
+          <div class="home-view__main-card-container section-container">
             <div class="home-view__main-card-title">
               <h1>Get online week 2023</h1>
             </div>
             <div class="home-view__main-card-excerpt">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima in quis, fuga eos hic cum nemo quas minus cumque pariatur totam quo, quaerat facilis. Commodi quidem nam dignissimos vel minima.</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima in quis, fuga eos hic cum nemo quas minus cumque pariatur totam quo,
+                quaerat facilis. Commodi quidem nam dignissimos vel minima.
+              </p>
             </div>
             <div>
               <button class="home-view__main-card-button">Get involved now!</button>
@@ -17,40 +20,56 @@
         </div>
       </div>
     </section>
-    <section>
-      <div class="home-view__secondary-cards">
-        <div class="home-view__secondary-cards-image-only-card"></div>
-        <div class="home-view__secondary-cards-information-card">
-          <div class="home-view__secondary-cards-information-card-container">
-            <div class="home-view__secondary-cards-text">
-              <div class="home-view__secondary-cards-text-title">
-                <p>We are a social change charity, helping people to improve their lives through digital.</p>
-              </div>
-              <div class="home-view__secondary-cards-text-sub-text">
-                <p>We tackle the most pressing issues of our time, working with partners in thousands of communitites across the uk and further afield.</p>
-              </div>
+
+    <section class="home-view__secondary-cards">
+      <div class="home-view__secondary-cards-image-only-card"></div>
+      <div class="home-view__secondary-cards-information-card">
+        <div class="home-view__secondary-cards-information-card-container">
+          <div class="home-view__secondary-cards-text">
+            <div class="home-view__secondary-cards-text-title title">
+              <h1>We are a social change charity, helping people to improve their lives through digital.</h1>
             </div>
-            <div>
-              <button class="home-view__secondary-cards-information-card-button">Learn more about us</button>
+            <div class="home-view__secondary-cards-text-sub-text sub-text">
+              <p>
+                We tackle the most pressing issues of our time, working with partners in thousands of communitites across the uk and further afield.
+              </p>
             </div>
+          </div>
+          <div>
+            <button class="home-view__secondary-cards-information-card-button">Learn more about us</button>
           </div>
         </div>
       </div>
     </section>
-    <section class="home-view__help-you">
+
+    <section class="home-view__help-you section-container">
       <div class="home-view__help-you-content">
-        <div class="home-view__help-you-title">
+        <div class="home-view__help-you-title title">
           <h1>How can we help you?</h1>
         </div>
-        <div class="home-view__help-you-sub-text">
-          <h4>Let us know who you are and what you're looking for, and we'll help you get to the right place.</h4>
+        <div class="home-view__help-you-sub-text sub-text">
+          <p>Let us know who you are and what you're looking for, and we'll help you get to the right place.</p>
         </div>
         <div class="home-view__help-you-selections">
           <div class="home-view__help-you-options">
-            <span style="margin-right: 8px">I am</span>
-            <drop-down :items="personTypeOptions" :selected="'please select'" :show="showPersonType" v-bind="$listeners" @click="showPersonType = !showPersonType" @itemSelected="updatePersonType" />
-            <span style="margin: 0px 8px">I want to</span>
-            <drop-down :items="actionTypeOptions" :selected="actionType" :show="showActionType" v-bind="$listeners" @click="showActionType = !showActionType" @itemSelected="updateActionType" />
+            <span style="margin-right: 8px">I am a</span>
+            <drop-down
+              :items="personTypeOptions"
+              :selected="'please select'"
+              :show="showPersonType"
+              v-bind="$listeners"
+              @click="showPersonType = !showPersonType"
+              @itemSelected="updatePersonType"
+            />
+            <span class="home-view__help-you-i-want-to">I want to</span>
+            <drop-down
+              :items="actionTypeOptions"
+              :selected="actionType"
+              :show="showActionType"
+              v-bind="$listeners"
+              @click="showActionType = !showActionType"
+              @itemSelected="updateActionType"
+            />
           </div>
           <div>
             <button class="home-view__help-you-button">Start now</button>
@@ -58,7 +77,42 @@
         </div>
       </div>
     </section>
-    <section class="home-view__about-us">About us</section>
+
+    <footer class="home-view__about-us section-container">
+      <div class="home-view__about-us-content">
+        <div class="home-view__about-us-title title">
+          <h1>What do we do?</h1>
+        </div>
+        <div class="home-view__about-us-sub-text sub-text">
+          <p>You might not have heard of us, but we're the people behind the following impactful programmes</p>
+        </div>
+        <div class="home-view__about-us-cards">
+          <div class="home-view__about-us-card">
+            <div class="card-title">Get online week</div>
+            <div class="card-sub-title">Lorem ipsum solor sit</div>
+            <button class="card-button">Click me</button>
+          </div>
+          <div class="home-view__about-us-card">
+            <div class="card-title">Get online week</div>
+            <div class="card-sub-title">Lorem ipsum solor sit</div>
+            <button class="card-button">Click me</button>
+          </div>
+          <div class="home-view__about-us-card">
+            <div class="card-title">Get online week</div>
+            <div class="card-sub-title">Lorem ipsum solor sit</div>
+            <button class="card-button">Click me</button>
+          </div>
+          <div class="home-view__about-us-card">
+            <div class="card-title">Get online week</div>
+            <div class="card-sub-title">Lorem ipsum solor sit</div>
+            <button class="card-button">Click me</button>
+          </div>
+        </div>
+        <div class="home-view__about-us-button">
+          <button class="footer-button">Learn more about us</button>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -71,8 +125,8 @@ export default {
   },
   data() {
     return {
-      personType: 'a person',
-      personTypeOptions: ['a person', 'a researcher', 'an individual'],
+      personType: 'person',
+      personTypeOptions: ['person', 'researcher', 'individual'],
       showPersonType: false,
       actionType: 'want to help',
       actionTypeOptions: ['want to help', 'work for you', 'improve my online skills'],
@@ -91,7 +145,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.section-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px;
+}
+.title h1 {
+  font-size: 2.5rem;
+}
+.sub-text p {
+  font-size: 1.5rem;
+  margin: 0 !important;
+  padding: 0;
+}
 .home-view {
+  font-size: 1.5rem;
   &__main-card {
     height: 500px;
     &-content {
@@ -107,7 +177,6 @@ export default {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin-left: 40px;
       gap: 20px;
     }
     &-title,
@@ -122,7 +191,7 @@ export default {
       font-size: 2rem;
       color: white;
       padding: 20px;
-      background: #278d82;
+      background: #367d91;
     }
     &-excerpt {
       max-width: 35%;
@@ -160,6 +229,7 @@ export default {
     &-information-card {
       display: flex;
       flex-direction: column;
+      justify-content: center;
       gap: 10px;
       width: 50%;
       background: #278d82;
@@ -169,8 +239,9 @@ export default {
       &-container {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         gap: 20px;
-        padding: 20px;
+        padding: 0 40px;
       }
       &-button {
         border: solid 2px white;
@@ -191,33 +262,28 @@ export default {
       display: flex;
       flex-direction: column;
       gap: 20px;
-      max-width: 75%;
+      max-width: 85%;
       color: white;
 
-      &-title {
+      &-title h1 {
         font-size: 2rem;
         line-height: 36px;
         font-weight: 900;
       }
-      &-sub-text {
-        font-size: 1.25rem;
-      }
     }
   }
   &__help-you {
-    height: 350px;
+    height: auto;
     background: rgb(235, 235, 235);
     &-content {
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin-left: 40px;
-      margin-right: 40px;
-      gap: 10px;
+      gap: 20px;
+      padding: 20px 0;
     }
     &-title {
-      font-size: 1.5rem;
       font-weight: bold;
     }
     &-selections {
@@ -225,13 +291,15 @@ export default {
       align-items: center;
       justify-content: center;
       background: white;
-      padding: 30px 0;
+      padding: 30px 10px;
       text-align: center;
+    }
+    &-i-want-to {
+      margin: 0 8px;
     }
     &-options {
       display: flex;
-      font-size: 2rem;
-      margin-right: 10px;
+      margin-right: 20px;
     }
     &-button {
       background: #b40000;
@@ -249,22 +317,82 @@ export default {
     }
   }
   &__about-us {
-    height: 500px;
-    background: rgb(112, 108, 108);
+    height: auto;
+    background: #367d91;
+    &-content {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px 0;
+    }
+    &-title {
+      font-weight: bold;
+      color: white;
+    }
+    &-sub-text p {
+      color: white;
+    }
+    &-cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      height: 100%;
+    }
+    &-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      max-width: 350px;
+      min-width: 300px;
+      min-height: 300px;
+      height: 100%;
+      background-color: white;
+      margin-bottom: 20px;
+    }
+    &-button {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
   }
 }
-.arrow {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 4px;
-  transition: all 0.4s;
-  transform: rotate(45deg);
+.card-title {
+  font-weight: bold;
 }
-.active {
-  transform: rotate(225deg);
-  -webkit-transform: rotate(225deg);
-  margin-top: 10px;
+.card-button {
+  border: solid 2px black;
+  border-radius: 20px;
+  padding: 10px 20px;
+  outline: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #b40000;
+  background: none;
+  &:hover {
+    background: #760000;
+    color: white;
+  }
+}
+.footer-button {
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  outline: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #b40000;
+  background: white;
+  &:hover {
+    background: #760000;
+    color: white;
+  }
 }
 @media screen and (min-width: 1200px) {
   .home-view {
@@ -278,10 +406,23 @@ export default {
         font-size: 1.5rem;
       }
     }
+    &__about-us {
+      &-cards {
+        justify-content: flex-start;
+      }
+    }
   }
 }
-
 @media screen and (max-width: 992px) {
+  .section-container {
+    padding: 20px;
+  }
+  .title h1 {
+    font-size: 2rem;
+  }
+  .sub-text p {
+    font-size: 1rem;
+  }
   .home-view {
     &__main-card {
       &-container {
@@ -301,23 +442,35 @@ export default {
       &-information-card {
         flex-direction: row;
         &-container {
-          justify-content: center;
           align-items: center;
+          gap: 10px;
+          padding: 20px;
         }
       }
       &-text {
         &-title {
-          font-size: 1.5rem;
           line-height: 32px;
         }
-        &-sub-text {
-          font-size: 1rem;
-        }
+      }
+    }
+    &__help-you {
+      &-selections {
+        text-align: left;
+        padding: 10px;
+      }
+      &-options {
+        font-size: 1.25rem;
       }
     }
   }
 }
 @media screen and (max-width: 768px) {
+  .section-container {
+    gap: 10px;
+  }
+  .title h1 {
+    font-size: 1.25rem;
+  }
   .home-view {
     &__main-card {
       max-height: 600px;
@@ -326,19 +479,39 @@ export default {
         text-align: center;
       }
       &-excerpt {
-        font-size: 0.75rem;
+        font-size: 1rem;
       }
     }
     &__secondary-cards {
       &-text {
         max-width: 100%;
-        &-title {
-          font-size: 1.5rem;
-          line-height: 34px;
+        &-title h1 {
+          line-height: 24px;
         }
-        &-sub-text {
-          font-size: 1rem;
-        }
+      }
+    }
+    &__help-you {
+      &-content {
+        margin: 0;
+      }
+      &-selections {
+        flex-direction: column;
+      }
+      &-i-want-to {
+        margin: 0;
+      }
+      &-options {
+        flex-direction: column;
+        font-size: 1rem;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+    }
+    &__about-us {
+      &-cards {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
     }
   }
@@ -362,6 +535,13 @@ export default {
       &-information-card {
         width: 100%;
         height: 50%;
+      }
+    }
+    &__about-us {
+      &-card {
+        max-width: none;
+        padding: 20px;
+        min-width: auto;
       }
     }
   }

@@ -1,7 +1,7 @@
 <template>
   <div class="drop-down" :style="customStyle" v-on="$listeners">
-    <div style="display: flex; align-items: center">
-      <div style="margin-right: 14px">{{ value }}</div>
+    <div class="drop-down__selected">
+      <div class="drop-down-value">{{ value }}</div>
       <div :class="{ arrow: true, active: show }"></div>
     </div>
     <div v-if="show" class="drop-down__items">
@@ -48,6 +48,13 @@ export default {
   position: relative;
   cursor: pointer;
   border-bottom: 3px solid #278d82;
+  &__selected {
+    display: flex;
+    align-items: center;
+  }
+  &-value {
+    margin-right: 14px;
+  }
   &__items {
     position: absolute;
     width: 100%;
@@ -55,6 +62,7 @@ export default {
     right: 0;
     font-size: 1.5rem;
     min-width: max-content;
+    z-index: 10;
     &-item {
       padding: 4px 8px !important;
       &:hover {
@@ -76,12 +84,21 @@ export default {
   -webkit-transform: rotate(225deg);
   margin-top: 10px;
 }
-.drop-down-items {
-}
 ul,
 li {
   list-style: none;
   padding: 0 !important;
   margin: 0 !important;
+}
+@media screen and (max-width: 768px) {
+  .drop-down {
+    &__items {
+      left: 0;
+      right: 0;
+      margin: auto;
+      text-align: center;
+      min-width: auto;
+    }
+  }
 }
 </style>
