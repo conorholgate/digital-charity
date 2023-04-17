@@ -194,6 +194,9 @@ export default {
         background: #760000;
         color: white;
       }
+      &:active {
+        background: #4a0000;
+      }
     }
   }
 
@@ -233,6 +236,9 @@ export default {
         &:hover {
           background: white;
           color: #278d82;
+        }
+        &:active {
+          background: #dddddd;
         }
       }
     }
@@ -297,6 +303,9 @@ export default {
       &:hover {
         background: #760000;
       }
+      &:active {
+        background: #4a0000;
+      }
     }
   }
 
@@ -349,6 +358,9 @@ export default {
           background: #760000;
           color: white;
         }
+        &:active {
+          background: #4a0000;
+        }
       }
     }
     &-button-container {
@@ -363,6 +375,9 @@ export default {
       &:hover {
         background: #760000;
         color: white;
+      }
+      &:active {
+        background: #4a0000;
       }
     }
   }
