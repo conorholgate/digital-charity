@@ -1,46 +1,50 @@
 <template>
-  <div class="drop-down" :style="customStyle" v-on="$listeners">
-    <div class="drop-down__selected">
-      <div class="drop-down-value">{{ value }}</div>
-      <div :class="{ arrow: true, active: show }"></div>
-    </div>
-    <div v-if="show" class="drop-down__items">
-      <ul class="drop-down__items-item" v-for="(item, key) in items" :key="key">
-        <li @click="itemSelect(item)">{{ item }}</li>
-      </ul>
-    </div>
-  </div>
+	<div class="drop-down" :style="customStyle" v-on="$listeners">
+		<div class="drop-down__selected">
+			<div class="drop-down-value">{{ value }}</div>
+			<div :class="{ arrow: true, active: show }"></div>
+		</div>
+		<div v-if="show" class="drop-down__items">
+			<ul
+				class="drop-down__items-item"
+				v-for="(item, key) in items"
+				:key="key"
+			>
+				<li @click="itemSelect(item)">{{ item }}</li>
+			</ul>
+		</div>
+	</div>
 </template>
 
 <script>
 export default {
-  name: 'drop-down',
-  props: {
-    show: {
-      type: Boolean,
-    },
-    items: {
-      type: [String, Array, Object],
-    },
-    selected: {
-      type: [String, Array, Object],
-    },
-    customStyle: {
-      type: Object,
-    },
-  },
-  data() {
-    return {
-      value: this.selected,
-    }
-  },
-  methods: {
-    itemSelect(item) {
-      this.value = item
-      this.$emit('itemSelected', item)
-    },
-  },
-}
+	name: "drop-down",
+	props: {
+		show: {
+			type: Boolean,
+		},
+		items: {
+			type: [String, Array, Object],
+		},
+		selected: {
+			type: [String, Array, Object],
+		},
+		customStyle: {
+			type: Object,
+		},
+	},
+	data() {
+		return {
+			value: this.selected,
+		};
+	},
+	methods: {
+		itemSelect(item) {
+			this.value = item;
+			this.$emit("itemSelected", item);
+		},
+	},
+};
 </script>
 
 <style lang="scss" scoped>
@@ -64,7 +68,7 @@ export default {
     min-width: max-content;
     z-index: 10;
     &-item {
-      padding: 4px 8px !important;
+      padding: 8px 10px !important;
       &:hover {
         background-color: $green-hover;
       }
@@ -97,7 +101,6 @@ li {
       right: 0;
       margin: auto;
       text-align: center;
-      min-width: auto;
     }
   }
 }
